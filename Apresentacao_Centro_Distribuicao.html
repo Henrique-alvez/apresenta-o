@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Apresentação Executiva: Centro de Distribuição de Serviços</title>
+  <style>
+    /* ==========================================================================
+       RESET E ESTILOS GERAIS EMBUTIDOS (100% OFFLINE E INDEPENDENTE DE CDN)
+       Funciona perfeitamente em celulares (Android/iOS), tablets e computadores.
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --bg: #0B0F19;
+      --surface: #111827;
+      --card-bg: #1E293B;
+      --card-border: #334155;
+      --primary: #10B981;
+      --primary-dark: #059669;
+      --primary-light: rgba(16, 185, 129, 0.15);
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --danger-bg: rgba(239, 68, 68, 0.12);
+      --danger-border: rgba(239, 68, 68, 0.35);
+      --danger-text: #F87171;
+      --success-bg: rgba(16, 185, 129, 0.12);
+      --success-border: rgba(16, 185, 129, 0.35);
+      --success-text: #34D399;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.35);
+      --amber-text: #FBBF24;
+      --blue-bg: rgba(59, 130, 246, 0.12);
+      --blue-border: rgba(59, 130, 246, 0.35);
+      --blue-text: #60A5FA;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+
+    /* Container Principal */
+    .app-container {
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: auto;
+    }
+
+    /* Barra Superior */
+    .top-bar {
+      background-color: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-indicator {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--primary);
+      background: #060911;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+
+    /* Viewport do Slide */
+    .slide-viewport {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      touch-action: pan-y;
+      overflow-y: auto;
+    }
+
+    @media (min-width: 768px) {
+      .slide-viewport {
+        padding: 32px;
+        min-height: 580px;
+      }
+    }
+
+    /* Conteúdo do Slide */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-header {
+      margin-bottom: 16px;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.3;
+    }
+
+    .slide-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    @media (min-width: 768px) {
+      .slide-title { font-size: 28px; }
+      .slide-subtitle { font-size: 15px; }
+    }
+
+    /* Grid & Cards Responsivos */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .card-danger {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: #FECACA;
+    }
+
+    .card-success {
+      background: var(--success-bg);
+      border: 1.5px solid var(--primary);
+      color: #D1FAE5;
+    }
+
+    .card-amber {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 12.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+
+    /* Slide de Capa */
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      height: 100%;
+      padding: 10px 0;
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+
+    .cover-title {
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    .cover-title span {
+      color: var(--primary);
+    }
+
+    .cover-sub {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.4;
+    }
+
+    .quote-box {
+      background: rgba(15, 23, 42, 0.7);
+      border-left: 4px solid var(--primary);
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-style: italic;
+      font-size: 13px;
+      color: #A7F3D0;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #E2E8F0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .cover-title { font-size: 42px; }
+      .cover-sub { font-size: 18px; }
+      .quote-box { font-size: 15px; padding: 16px; }
+    }
+
+    /* Barra de Navegação Inferior (Mobile Friendly) */
+    .bottom-bar {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #064E3B;
+      font-weight: 700;
+    }
+
+    .btn-notes {
+      color: var(--amber-text);
+      border-color: var(--amber-border);
+    }
+
+    .btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Caixa de Notas do Orador */
+    .notes-box {
+      background: #181F2E;
+      border: 1px solid var(--amber-border);
+      border-radius: 16px;
+      padding: 14px;
+      display: none;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #283347;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber-text);
+      text-transform: uppercase;
+    }
+
+    .notes-text {
+      font-size: 13px;
+      color: #E2E8F0;
+      line-height: 1.5;
+    }
+
+    /* Rodapé do Slide */
+    .slide-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 10px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* Swipe Hint para Celulares */
+    .swipe-hint {
+      text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Barra Superior -->
+    <header class="top-bar">
+      <div class="brand-group">
+        <div class="badge-icon">CD</div>
+        <div>
+          <div class="brand-title">CENTRO DE DISTRIBUIÇÃO</div>
+          <div class="brand-sub">Prestação de Serviços • Modelo Asset-Light</div>
+        </div>
+      </div>
+      <div id="slideIndicator" class="nav-indicator">1 / 12</div>
+    </header>
+
+    <!-- O Slide (Responsivo e com Suporte a Touch Swipe) -->
+    <main id="slideViewport" class="slide-viewport">
+      <div id="slideContent" class="slide-body">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+      <footer class="slide-footer">
+        <span>Modelo de Negócio — CD de Serviços</span>
+        <span>Sem Compra e Sem Revenda</span>
+      </footer>
+    </main>
+
+    <!-- Dica de gesto para celulares -->
+    <div class="swipe-hint">👉 Deslize para os lados (swipe) ou use os botões abaixo</div>
+
+    <!-- Barra Inferior de Navegação -->
+    <nav class="bottom-bar">
+      <button id="prevBtn" class="btn" onclick="prevSlide()">
+        <span>◀</span> Anterior
+      </button>
+      
+      <button class="btn btn-notes" onclick="toggleNotes()">
+        🎙️ <span class="notes-btn-text">Roteiro</span>
+      </button>
+
+      <button id="nextBtn" class="btn btn-primary" onclick="nextSlide()">
+        Próximo <span>▶</span>
+      </button>
+    </nav>
+
+    <!-- Caixa de Notas do Orador -->
+    <div id="speakerNotesBox" class="notes-box">
+      <div class="notes-header">
+        <span>🎙️ Roteiro de Apresentação (Notas do Orador)</span>
+        <span style="font-size: 10px; color: var(--text-muted); cursor: pointer;" onclick="toggleNotes()">[Fechar ✕]</span>
+      </div>
+      <p id="speakerNotesText" class="notes-text"></p>
+    </div>
+
+  </div>
+
+  <script>
+    /* ==========================================================================
+       DADOS E LÓGICA DA APRESENTAÇÃO (100% EMBUTIDA E LEVE)
+       ========================================================================== */
+    const slides = [
+      {
+        id: 1,
+        tag: "Apresentação Estratégica",
+        title: "CENTRO DE DISTRIBUIÇÃO DE SERVIÇOS",
+        notes: "Prezados, hoje apresento o projeto de estruturação do nosso Centro de Distribuição de Prestação de Serviços. Trata-se de um modelo inovador que rompe com a lógica tradicional do comércio atacadista: nós não compramos nem revendemos mercadorias. Atuamos como a infraestrutura física e comercial que viabiliza, organiza e acelera o fluxo entre quem produz e quem compra, operando de forma enxuta e sem risco de volatilidade de estoque.",
+        render: () => `
+          <div class="cover-container">
+            <div class="cover-badge">✨ Modelo de Negócio Validado</div>
+            <h1 class="cover-title">
+              CENTRO DE DISTRIBUIÇÃO DE <span>PRESTAÇÃO DE SERVIÇOS</span>
+            </h1>
+            <p class="cover-sub">
+              Estruturação de um Hub Estratégico de Conexão, Armazenamento e Intermediação Comercial.
+            </p>
+            <div class="quote-box">
+              “Conectando produtores e compradores com infraestrutura, organização, movimentação e intermediação comercial, sem comprar ou revender produtos.”
+            </div>
+            <div class="pill-group">
+              <span class="pill">✓ Sem Risco de Estoque</span>
+              <span class="pill">✓ 5 Fontes de Receita</span>
+              <span class="pill">✓ Blindagem Jurídica</span>
+              <span class="pill">✓ Operação Lean</span>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 2,
+        tag: "1. Como Funcionará o Negócio",
+        title: "Repensando a Cadeia de Distribuição",
+        subtitle: "Ruptura com o modelo tradicional: foco integral em prestação de serviços logísticos.",
+        notes: "Para compreender o poder desse modelo, comparemos com a distribuidora tradicional. Uma distribuidora precisa de milhões em capital de giro para comprar caminhões de produtos, correndo o risco de apodrecimento, oscilação de preços e inadimplência do varejo. No nosso CD, a mercadoria não entra no balanço como ativo de revenda. Nosso negócio é a prestação de serviços logísticos e a intermediação. Ganhamos pelo serviço prestado, otimizando o galpão e garantindo liquidez.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">1. Como Funcionará o Negócio</span>
+            <h2 class="slide-title">Repensando a Cadeia de Suprimentos</h2>
+            <p class="slide-subtitle">A empresa não será uma distribuidora tradicional: sem compra e sem revenda.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card card-danger">
+              <div class="card-title" style="color: var(--danger-text);">❌ Distribuidora Tradicional</div>
+              <ul>
+                <li><span>•</span> Compra antecipada imobilizando alto capital de giro.</li>
+                <li><span>•</span> Risco total de perdas, quebras, validade e desvalorização.</li>
+                <li><span>•</span> Margens espremidas pela volatilidade das cotações.</li>
+                <li><span>•</span> Alto risco de inadimplência dos compradores finais.</li>
+              </ul>
+            </div>
+            <div class="card card-success">
+              <div class="card-title" style="color: var(--success-text);">✅ Nosso CD de Serviços</div>
+              <ul>
+                <li><span>•</span> <strong>Zero compra e revenda:</strong> A mercadoria pertence sempre às partes.</li>
+                <li><span>•</span> <strong>Receita 100% de serviços:</strong> Armazenagem, manuseio e conexão.</li>
+                <li><span>•</span> <strong>Capital de giro preservado:</strong> Risco zero de perda de mercadorias.</li>
+                <li><span>•</span> <strong>Foco na eficiência:</strong> Gestão de espaço, qualidade e matchmaking.</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 3,
+        tag: "Fluxo Operacional",
+        title: "Fluxo da Operação e Custódia",
+        subtitle: "Como o produto transita fisicamente mantendo a titularidade das partes.",
+        notes: "Aqui visualizamos o caminho da mercadoria. O produtor descarrega em nosso hub. Imediatamente aplicamos rigorosa conferência de qualidade e quantidade. O produto fica guardado sob condições ideais. Assim que os pedidos dos compradores são fechados na nossa mesa de intermediação, fazemos a separação e preparamos a expedição. O comprador recebe seu pedido consolidado com rapidez, e o produtor recebe o pagamento diretamente.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">Operação Ponta a Ponta</span>
+            <h2 class="slide-title">Fluxo da Operação e Custódia</h2>
+            <p class="slide-subtitle">Produtor ➔ Seu CD ➔ Comprador</p>
+          </div>
+          <div class="grid-3" style="margin-bottom: 12px;">
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">1. Produtor (Origem)</div>
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+                • Mantém a propriedade integral.<br>
+                • Envia mercadoria com nota de remessa.<br>
+                • Delega guarda e busca de compradores.
+              </p>
+            </div>
+            <div class="card" style="border: 1.5px solid var(--primary); background: #0E1E28;">
+              <div class="card-title" style="color: var(--primary);">2. Seu CD (Hub de Serviços)</div>
+              <p style="font-size: 12px; color: #E2E8F0; line-height: 1.4;">
+                • Recebimento e pesagem técnica.<br>
+                • Guarda organizada e climatizada.<br>
+                • Intermediação e montagem de pedidos.<br>
+                • Expedição ágil sem reter a posse.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--blue-text);">3. Comprador (Destino)</div>
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+                • Mercados, restaurantes e hortifrutis.<br>
+                • Acesso a múltiplos fornecedores.<br>
+                • Pagamento direto ao produtor.
+              </p>
+            </div>
+          </div>
+          <div class="card card-amber">
+            <p style="font-size: 11.5px; color: var(--amber-text); line-height: 1.4;">
+              <strong>Regra de Custódia:</strong> A mercadoria continuará pertencendo ao produtor ou ao comprador, conforme a negociação realizada entre as partes. A empresa prestará <em>apenas os serviços contratados</em>.
+            </p>
+          </div>
+        `
+      },
+      {
+        id: 4,
+        tag: "2. Portfólio do CD",
+        title: "Serviços Oferecidos pelo CD",
+        subtitle: "8 soluções operacionais para resolver os maiores gargalos do abastecimento.",
+        notes: "Nosso cardápio de serviços atende a todas as dores da cadeia. Para o produtor que não tem onde estocar ou não sabe negociar com grandes redes, oferecemos desde a guarda e etiquetagem até a intermediação comercial. Para o comprador, oferecemos conferência profissional, gestão de pedidos e expedição sincronizada. O cliente pode contratar serviços avulsos ou nosso pacote integrado.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">2. Portfólio Especializado</span>
+            <h2 class="slide-title">Serviços Oferecidos pelo CD</h2>
+            <p class="slide-subtitle">8 pilares de serviços para modernizar o escoamento.</p>
+          </div>
+          <div class="grid-4">
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">📦 Armazenamento</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Recebimento e guarda técnica no galpão, conforme contrato.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🏷️ Organização</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Separação, identificação e organização de cada produtor.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🔍 Conferência</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Checagem quantitativa e qualitativa na entrada e saída.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🤝 Intermediação</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Conexão comercial direta entre produtores e mercados.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🌐 Networking</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Criação e manutenção de rede ativa de parceiros.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">📋 Gestão Pedidos</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Centralização de demandas e direcionamento de ordens.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🚚 Expedição</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Preparação rápida para retirada ou entrega contratada.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🗺️ Logística</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Coordenação do transporte, sem atuar como transportadora.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 5,
+        tag: "3. Modelo de Monetização",
+        title: "Como a Empresa Poderá Ganhar Dinheiro",
+        subtitle: "A receita virá exclusivamente da prestação de serviços, e não da revenda.",
+        notes: "Nossa receita não depende de margem de produto, mas sim de volume, giro e transações. Temos 5 alavancas financeiras: cobramos pelo espaço ocupado, pelo manuseio operacional, pelo sucesso das conexões comerciais, pela recorrência mensal de acesso ao ecossistema e pela coordenação logística. Além disso, o Pacote de Abastecimento oferece previsibilidade ao cliente e receita estável ao galpão.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">3. Engenharia de Receita</span>
+            <h2 class="slide-title">Como a Empresa Poderá Ganhar Dinheiro</h2>
+            <p class="slide-subtitle">Múltiplas formas de cobrança por serviços prestados.</p>
+          </div>
+          <div class="grid-2">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="card" style="padding: 10px;">
+                <div style="font-weight: 700; font-size: 13px; color: #FFFFFF;">Taxa de Armazenamento</div>
+                <div style="font-size: 11.5px; color: var(--text-muted);">Cobrança por caixa, pallet, m² ocupado ou período.</div>
+              </div>
+              <div class="card" style="padding: 10px;">
+                <div style="font-weight: 700; font-size: 13px; color: #FFFFFF;">Taxa de Movimentação</div>
+                <div style="font-size: 11.5px; color: var(--text-muted);">Por recebimento, conferência, separação e expedição.</div>
+              </div>
+              <div class="card" style="padding: 10px;">
+                <div style="font-weight: 700; font-size: 13px; color: #FFFFFF;">Taxa de Intermediação</div>
+                <div style="font-size: 11.5px; color: var(--text-muted);">Percentual ou valor fixo pela conexão comercial.</div>
+              </div>
+              <div class="card" style="padding: 10px;">
+                <div style="font-weight: 700; font-size: 13px; color: #FFFFFF;">Taxa de Gestão Mensal</div>
+                <div style="font-size: 11.5px; color: var(--text-muted);">Mensalidade pelo acesso à rede e aos serviços do CD.</div>
+              </div>
+              <div class="card" style="padding: 10px;">
+                <div style="font-weight: 700; font-size: 13px; color: #FFFFFF;">Taxa de Logística</div>
+                <div style="font-size: 11.5px; color: var(--text-muted);">Coordenação de rotas e transporte sob demanda.</div>
+              </div>
+            </div>
+            <div class="card card-success" style="display: flex; flex-direction: column; justify-content: center;">
+              <span class="cover-badge" style="margin-bottom: 8px;">Recorrência</span>
+              <div class="card-title" style="color: var(--primary); font-size: 16px;">PACOTE DE ABASTECIMENTO</div>
+              <p style="font-size: 12px; color: #E2E8F0; margin-bottom: 10px; line-height: 1.4;">
+                Pacote unificado contendo armazenamento, conferência, organização, conexão com produtores e expedição.
+              </p>
+              <div style="font-size: 11px; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 8px; color: #A7F3D0;">
+                💡 Fideliza compradores e produtores com previsibilidade de fluxo de caixa.
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 6,
+        tag: "8. Diferencial do Negócio",
+        title: "Proposta de Valor Bilateral",
+        subtitle: "Reduzindo atritos de negociação e gerando organização, regularidade e praticidade.",
+        notes: "Por que produtores e compradores escolherão o nosso CD? Porque resolvemos o maior gargalo de ambos. Para o produtor rural, o sofrimento é produzir e não ter para quem vender ou ver sua colheita estragar. Nós abrimos as portas dos mercados para ele. Já para o dono de supermercado ou hortifruti, a dor de cabeça diária é negociar com dezenas de produtores e receber produtos fora do padrão. Nós consolidamos tudo em uma entrega única e confiável.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">8. Proposta de Valor</span>
+            <h2 class="slide-title">Diferencial Competitivo Bilateral</h2>
+            <p class="slide-subtitle">Solução ganha-ganha para produtores e compradores.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card card-success">
+              <div class="card-title" style="color: var(--primary);">🌱 PARA OS PRODUTORES</div>
+              <ul>
+                <li><span>✓</span> <strong>Acesso a compradores:</strong> Canais diretos com mercados e redes.</li>
+                <li><span>✓</span> <strong>Escoamento da produção:</strong> Fim das perdas no campo.</li>
+                <li><span>✓</span> <strong>Negociação organizada:</strong> Regras claras e recebimento pontual.</li>
+                <li><span>✓</span> <strong>Fornecimento recorrente:</strong> Vendas contínuas ao longo da safra.</li>
+              </ul>
+            </div>
+            <div class="card" style="background: var(--blue-bg); border: 1.5px solid var(--blue-border); color: #DBEAFE;">
+              <div class="card-title" style="color: var(--blue-text);">🛒 PARA OS COMPRADORES</div>
+              <ul>
+                <li><span>✓</span> <strong>Ponto único de contato:</strong> Um só hub para dezenas de produtores.</li>
+                <li><span>✓</span> <strong>Redução do tempo:</strong> Fim das ligações telefônicas diárias.</li>
+                <li><span>✓</span> <strong>Pedidos organizados:</strong> Cargas unificadas e conferidas.</li>
+                <li><span>✓</span> <strong>Previsibilidade:</strong> Regularidade sem rupturas de estoque.</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 7,
+        tag: "9. Decisão Estratégica",
+        title: "Quem Será o Cliente Pagador?",
+        subtitle: "Pergunta comercial essencial que dita contratos, cobrança e estratégia comercial.",
+        notes: "Esta é a pergunta estratégica que dita nossa modelagem antes de abrir as portas: quem paga a conta? Temos três caminhos: cobrar do produtor, cobrar do comprador ou adotar o modelo compartilhado bilateral, onde o produtor remunera a guarda e manuseio, e o mercado remunera a conveniência da consolidação e intermediação. A escolha do cenário desenhará nossa abordagem comercial na fase piloto.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">9. Pergunta Comercial Essencial</span>
+            <h2 class="slide-title">Quem Será o Cliente Pagador?</h2>
+            <p class="slide-subtitle">Antes de definir preços, é necessário definir quem remunera o CD.</p>
+          </div>
+          <div class="grid-3" style="margin-bottom: 12px;">
+            <div class="card">
+              <div class="card-title" style="color: var(--amber-text);">Opção 1: O Produtor</div>
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+                Paga para usar a infraestrutura do CD e ter acesso garantido aos compradores.<br><br>
+                <span style="color: var(--primary);">Pró:</span> Entrada fácil para o mercado comprador.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--blue-text);">Opção 2: O Mercado</div>
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+                Paga para ter acesso à rede de produtores e receber pedidos consolidados.<br><br>
+                <span style="color: var(--primary);">Pró:</span> Compradores pagam por conveniência e tempo.
+              </p>
+            </div>
+            <div class="card card-success">
+              <div class="card-title" style="color: var(--primary);">Opção 3: Ambos Pagam</div>
+              <p style="font-size: 12px; color: #D1FAE5; line-height: 1.4;">
+                <strong>Modelo Híbrido:</strong> Cada um paga por sua parte (produtor na armazenagem; mercado na intermediação).<br><br>
+                <span style="color: #A7F3D0;">★ Mais equilibrado e sustentável.</span>
+              </p>
+            </div>
+          </div>
+          <div class="card" style="background: #0E1626; padding: 10px; font-size: 11.5px; color: var(--text-muted);">
+            📌 <strong>Impacto Direto:</strong> Essa definição influencia o modelo de contrato, as regras de comissão e a estratégia de vendas.
+          </div>
+        `
+      },
+      {
+        id: 8,
+        tag: "4 e 5. Governança Legal",
+        title: "Separação de Papéis e CNPJ",
+        subtitle: "Blindagem contábil, jurídica e fiscal para garantir a atuação exclusiva em serviços.",
+        notes: "Segurança jurídica é inegociável neste modelo. Uma falha aqui poderia levar o fisco a confundir nossa operação com uma distribuidora ou nos responsabilizar pela perda de mercadoria de terceiros. Por isso, operamos sob uma cláusula pétrea de prestação de serviços. O contrato especifica com rigor quem responde por seguro, perdas, validade e frete. Nossos CNAEs e rotinas contábeis refletem com exatidão a circulação física sem compra e venda.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">4 e 5. Blindagem Jurídica e Fiscal</span>
+            <h2 class="slide-title">Separação de Papéis e Estrutura Legal</h2>
+            <p class="slide-subtitle">A empresa não deve ser apresentada como dona nem revendedora das mercadorias.</p>
+          </div>
+          <div class="card card-amber" style="margin-bottom: 12px;">
+            <div style="font-size: 11px; font-weight: 800; color: var(--amber-text); text-transform: uppercase; margin-bottom: 4px;">
+              ⚖️ Cláusula Sugerida para Avaliação Jurídica e Contábil:
+            </div>
+            <p style="font-size: 12px; font-style: italic; color: #FEF3C7; line-height: 1.4;">
+              “A empresa atua exclusivamente na prestação de serviços de armazenamento, organização, movimentação e intermediação comercial, não adquirindo a propriedade dos produtos armazenados e não realizando a revenda das mercadorias.”
+            </p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title">Regras Contratuais:</div>
+              <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.4;">
+                O contrato deve definir quem é responsável por perdas, avarias, validade, qualidade, seguro, documentação fiscal e transporte.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title">CNPJ e CNAEs:</div>
+              <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.4;">
+                Conversar com contador do agro/logística para avaliar CNAEs de armazenagem de terceiros, movimentação e intermediação comercial.
+              </p>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 9,
+        tag: "7. Infraestrutura",
+        title: "Estrutura Possível do Galpão",
+        subtitle: "Zoneamento físico e ativos essenciais para máxima eficiência de movimentação.",
+        notes: "A eficiência do CD depende do desenho físico do galpão. Desenhamos um fluxo contínuo para evitar cruzamento de mercadorias. O produto entra pelo recebimento, passa pela conferência técnica com pesagem e etiquetagem, é armazenado no espaço seco ou na câmara fria, vai para a separação dos pedidos e sai imediatamente na expedição. Tudo isso controlado por um sistema digital de estoque e movimentação.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">7. Layout do Galpão</span>
+            <h2 class="slide-title">Estrutura Possível do Galpão</h2>
+            <p class="slide-subtitle">Zoneamento desenhado para fluxo contínuo de mercadorias.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🏢 Áreas do Galpão</div>
+              <ul style="font-size: 12px;">
+                <li><span>1.</span> Área de recebimento e descarga.</li>
+                <li><span>2.</span> Área de conferência e identificação.</li>
+                <li><span>3.</span> Área de armazenamento técnico.</li>
+                <li><span>4.</span> Área de separação e montagem (picking).</li>
+                <li><span>5.</span> Área de expedição rápida.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--blue-text);">⚙️ Equipamentos e Sistemas</div>
+              <ul style="font-size: 12px;">
+                <li><span>•</span> <strong>Balança de precisão:</strong> Pesagem oficial de entrada e saída.</li>
+                <li><span>•</span> <strong>Pallets e caixas:</strong> Padronização para manuseio.</li>
+                <li><span>•</span> <strong>Câmara fria:</strong> Se necessária para perecíveis.</li>
+                <li><span>•</span> <strong>Sistema WMS:</strong> Controle digital de estoque e pedidos.</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 10,
+        tag: "6. Roadmap de Entrada",
+        title: "Recomendações Práticas para Iniciar",
+        subtitle: "Metodologia enxuta (Lean): comprove o volume antes de investir em grandes galpões.",
+        notes: "Não vamos cometer o erro de alugar um galpão gigantesco e contratar dezenas de pessoas no escuro. Adotaremos uma estratégia Lean: primeiro validamos os compradores e cadastramos os produtores locais. Começamos com poucos produtos de alta rotatividade em uma região delimitada. Padronizamos os processos e rodamos a operação piloto. Somente após comprovar o volume é que realizaremos aportes para ampliação.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">6. Recomendações para Iniciar</span>
+            <h2 class="slide-title">Estratégia Lean de Implantação</h2>
+            <p class="slide-subtitle">Validação rápida em 5 etapas para minimizar riscos.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="card" style="padding: 10px; display: flex; align-items: center; gap: 10px;">
+              <span class="cover-badge" style="padding: 2px 8px;">1</span>
+              <div style="font-size: 12px;"><strong>Validar o mercado:</strong> Conversar com mercados e restaurantes sobre dores e produtos.</div>
+            </div>
+            <div class="card" style="padding: 10px; display: flex; align-items: center; gap: 10px;">
+              <span class="cover-badge" style="padding: 2px 8px;">2</span>
+              <div style="font-size: 12px;"><strong>Formar rede de produtores:</strong> Mapear capacidade, qualidade, regularidade e prazos.</div>
+            </div>
+            <div class="card" style="padding: 10px; display: flex; align-items: center; gap: 10px;">
+              <span class="cover-badge" style="padding: 2px 8px;">3</span>
+              <div style="font-size: 12px;"><strong>Começar enxuto:</strong> Evitar estrutura grande antes de comprovar o volume real de giro.</div>
+            </div>
+            <div class="card" style="padding: 10px; display: flex; align-items: center; gap: 10px;">
+              <span class="cover-badge" style="padding: 2px 8px;">4</span>
+              <div style="font-size: 12px;"><strong>Definir produtos e regiões:</strong> Poucos produtos estratégicos e área delimitada.</div>
+            </div>
+            <div class="card" style="padding: 10px; display: flex; align-items: center; gap: 10px;">
+              <span class="cover-badge" style="padding: 2px 8px;">5</span>
+              <div style="font-size: 12px;"><strong>Padronizar processos:</strong> Regras claras para conferência, separação e devoluções.</div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 11,
+        tag: "Controle de Custos",
+        title: "Controlar Custos e Despesas Críticas",
+        subtitle: "Principais linhas de despesa a monitorar para garantir rentabilidade líquida.",
+        notes: "Um negócio de margem sobre serviços exige controle cirúrgico de custos. O aluguel e a energia da refrigeração são os itens mais relevantes de despesa, seguidos pela equipe operacional. Para blindar o resultado, estabelecemos protocolos de manuseio com tolerância controlada de quebras e auditoria fotográfica de recebimento. O galpão opera com métricas claras de produtividade por metro quadrado.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">Gestão Orçamentária</span>
+            <h2 class="slide-title">Controlar Custos Operacionais</h2>
+            <p class="slide-subtitle">Previsibilidade financeira e controle rigoroso de perdas operacionais.</p>
+          </div>
+          <div class="grid-4" style="margin-bottom: 12px;">
+            <div class="card">
+              <div class="card-title" style="color: var(--amber-text);">🏢 Imóvel</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Aluguel do galpão e taxas de manutenção.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--amber-text);">⚡ Energia</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Consumo da câmara fria e refrigeração.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--amber-text);">👥 Equipe</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Equipe de conferência, manuseio e separação.</p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--amber-text);">📉 Quebras</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Perdas operacionais mantidas sob tolerância.</p>
+            </div>
+          </div>
+          <div class="card" style="font-size: 11.5px; color: var(--text-muted); line-height: 1.5;">
+            <strong>Outros custos essenciais:</strong> Manutenção preventiva de equipamentos, licença de sistema WMS e seguro patrimonial contra sinistros.
+          </div>
+        `
+      },
+      {
+        id: 12,
+        tag: "10. Conclusão",
+        title: "Posicionamento Estratégico Oficial",
+        subtitle: "Síntese executiva e diretrizes para execução da operação piloto.",
+        notes: "Em conclusão, este projeto não é apenas um galpão de estoque. É uma plataforma física e de relacionamento que organiza uma cadeia hoje fragmentada e ineficiente. Com segurança jurídica, custos controlados e posicionamento 'ganha-ganha', estamos prontos para executar a fase de validação e construir o centro de abastecimento de referência da nossa região. Agradeço a atenção e abro para perguntas e alinhamento dos próximos passos.",
+        render: () => `
+          <div class="slide-header">
+            <span class="slide-tag">10. Conclusão e Visão de Futuro</span>
+            <h2 class="slide-title">Posicionamento de Mercado</h2>
+          </div>
+          <div class="card card-success" style="padding: 16px; margin-bottom: 12px;">
+            <div style="font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 6px;">
+              Posicionamento Sugerido:
+            </div>
+            <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; font-style: italic; line-height: 1.3;">
+              “Um centro de abastecimento que conecta produtores e mercados, oferecendo armazenamento, organização, movimentação e intermediação comercial em um único lugar.”
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🎯 Regra Estrutural</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">
+                Operação fundamentada na prestação de serviços: <strong>sem compra e sem revenda</strong> de mercadorias.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--primary);">🚀 Próximo Passo</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">
+                Iniciar com <strong>operação piloto</strong>, validar a demanda real e formar rede confiável antes de ampliar investimentos.
+              </p>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    let currentSlide = 0;
+    let notesOpen = false;
+
+    function updateView() {
+      const slide = slides[currentSlide];
+      const container = document.getElementById("slideContent");
+      container.innerHTML = slide.render();
+
+      document.getElementById("slideIndicator").textContent = `${currentSlide + 1} / ${slides.length}`;
+      document.getElementById("prevBtn").disabled = currentSlide === 0;
+      document.getElementById("nextBtn").disabled = currentSlide === slides.length - 1;
+
+      document.getElementById("speakerNotesText").textContent = slide.notes;
+      document.getElementById("slideViewport").scrollTop = 0;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateView();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateView();
+      }
+    }
+
+    function toggleNotes() {
+      const box = document.getElementById("speakerNotesBox");
+      notesOpen = !notesOpen;
+      box.style.display = notesOpen ? "block" : "none";
+    }
+
+    // Suporte a Teclado (Desktop)
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key.toLowerCase() === "n") toggleNotes();
+    });
+
+    // Suporte a Touch Gestures (Swipe em Celulares)
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const viewport = document.getElementById("slideViewport");
+
+    viewport.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide(); // Swipe para a esquerda -> Próximo slide
+        } else {
+          prevSlide(); // Swipe para a direita -> Slide anterior
+        }
+      }
+    }
+
+    // Inicialização
+    updateView();
+  </script>
+</body>
+</html>
